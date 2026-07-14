@@ -1,7 +1,12 @@
 # pip install opencv-python==4.5.2
 
 import cv2 
-from controller import doorAutomate
+# from controller import doorAutomate
+def doorAutomate(val):
+    if val == 0:
+        print("Door would OPEN")
+    else:
+        print("Door would CLOSE")
 import time
 
 video=cv2.VideoCapture(0)
@@ -12,7 +17,7 @@ facedetect = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["", "Chando", "Pravas"]
+name_list = ["", "Sidharth", "Pravas"]
 
 imgBackground = cv2.imread("background.png")
 
@@ -22,7 +27,7 @@ while True:
     faces = facedetect.detectMultiScale(gray, 1.3, 5)
     for (x,y,w,h) in faces:
         serial, conf = recognizer.predict(gray[y:y+h, x:x+w])
-        if conf>50:
+        if conf<50:
             cv2.rectangle(frame, (x,y), (x+w, y+h), (0,0,255), 1)
             cv2.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),2)
             cv2.rectangle(frame,(x,y-40),(x+w,y),(50,50,255),-1)

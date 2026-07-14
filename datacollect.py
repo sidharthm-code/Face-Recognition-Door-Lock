@@ -2,7 +2,7 @@
 
 import cv2 
 
-video=cv2.VideoCapture("test.mp4")
+video=cv2.VideoCapture(0)
 
 facedetect = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
