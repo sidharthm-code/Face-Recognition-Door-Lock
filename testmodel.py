@@ -17,7 +17,7 @@ facedetect = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("Trainer.yml")
 
-name_list = ["", "Sidharth", "Pravas"]
+name_list = ["", "Sidharth", "Person2"]
 
 imgBackground = cv2.imread("background.png")
 
@@ -37,8 +37,8 @@ while True:
             cv2.rectangle(frame,(x,y),(x+w,y+h),(50,50,255),2)
             cv2.rectangle(frame,(x,y-40),(x+w,y),(50,50,255),-1)
             cv2.putText(frame, "Unknown", (x, y-10),cv2.FONT_HERSHEY_SIMPLEX,0.8,(255,255,255),2)
-    frame=cv2.resize(frame, (640, 480))
-    imgBackground[162:162 + 480, 55:55 + 640] = frame
+    frame=cv2.resize(frame, (730, 485))
+    imgBackground[150:150 + 485, 55:55 + 730] = frame
     cv2.imshow("Frame",imgBackground)
     
     k=cv2.waitKey(1)
