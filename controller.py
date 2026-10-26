@@ -1,6 +1,6 @@
 from pyfirmata import Arduino, SERVO
 
-PORT="COM7"
+PORT="COM6"
 
 pin=10
 
